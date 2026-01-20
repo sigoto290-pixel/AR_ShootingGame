@@ -1,0 +1,42 @@
+using UnityEngine;
+using Audio;
+
+public class Title2UI_Manager : MonoBehaviour
+{
+    public static Title2UI_Manager current;
+    void Awake()
+    {
+        if (current == null)
+        {
+            current = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    [SerializeField]WebCameraImage _webCameraImage;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        _webCameraImage.SetWebCamTexture();
+        GameManager.Current.StartFadeIn();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    public void LoadSceneButton(string __stageName)
+    {
+        GameManager.Current.LoadScene(__stageName);
+        SoundManager.Current.PlayOneShot2D_SE(OneShot.downButton,0.7f);
+    }
+    public void ResetRotationButton()
+    {
+        GameManager.Current.ResetRotation();
+        SoundManager.Current.PlayOneShot2D_SE(OneShot.downButton,0.7f);
+    }
+
+}

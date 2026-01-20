@@ -1,0 +1,73 @@
+using UnityEngine;
+using System.Collections;
+
+public class RedPlaneForLineUp : PlaneForLineUp
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Vector3.Dot(transform.right, LineUpTargetTr.right) > 0)
+        {
+            if (_isShow == true) return;
+            _isShow = true;
+            Utility.ChangeEnabledColliders(ColliderArray,true);
+            Utility.ChangeEnabledTMPorMeshRenderers(fadeTargetList,true);
+        }
+        else
+        {
+            if (_isShow == false) return;
+            _isShow = false;
+            Utility.ChangeEnabledColliders(ColliderArray,false);
+            Utility.ChangeEnabledTMPorMeshRenderers(fadeTargetList,false);
+        }
+
+    }
+    int _collisionCount;
+    void OnCollisionEnter(Collision collision)
+    {
+        _collisionCount++;
+        if(_collisionCount != 1) return;
+        if (collision.gameObject.CompareTag("BlueBullet"))
+        {
+            StageManager.Current.AddAccidentalShoot(1);
+            StageManager.Current.ResetCombo();
+        }
+        else if(collision.gameObject.CompareTag("RedBullet"))
+        {
+            StageManager.Current.AddCombo();
+            switch (Line_UpTarget.TargetTimeKeeper.CurrentTaimingState)
+            {
+                case TimingState.GoodTiming:
+                StageManager.Current.AddScore(0.4f,TimingState.GoodTiming);
+                break;
+                case TimingState.GreatTiming:
+                StageManager.Current.AddScore(0.7f,TimingState.GreatTiming);
+                break;
+                case TimingState.PerfectTiming:
+                StageManager.Current.AddScore(1f,TimingState.PerfectTiming);
+                break;
+            }
+            StartCoroutine(BreakCoroutine());
+        }
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        _collisionCount--;
+    }
+    protected override IEnumerator BreakCoroutine()
+    {
+        Line_UpTarget.DecrementPlaneCount();
+        Utility.ChangeEnabledColliders(ColliderArray,false);
+
+        _targetBreakAnimator.PlayExplosion(_effectPivotTr.position,Color.red,12,fadeTargetList);
+        yield return new WaitWhile(()=> _targetBreakAnimator.CurtExplosionPhase != BreakAnimator.ExplosionPhase.Completed);
+        Destroy(gameObject);
+    }
+
+}

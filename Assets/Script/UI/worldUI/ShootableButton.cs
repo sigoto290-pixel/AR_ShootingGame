@@ -1,0 +1,114 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class ShootableButton : MonoBehaviour,IAimEnterHandler,IAimExitHandler
+{
+    [SerializeField] List<TMPandMeshRenderer> TMPorMeshRendererList;
+    [SerializeField] Collider[] _colliderArray;
+    [SerializeField] MeshRenderer _baseMR;
+    [SerializeField,Range(0,1)] float _aimBrightness = 0.8f;
+    [SerializeField] TextMeshPro _explain3dTMP;
+    [SerializeField] TextMeshPro _needShotCount3dTMP;
+    [SerializeField] BreakAnimator _breakAnimator; 
+    [SerializeField]UnityEvent _onShoot;
+    [SerializeField] int _needShotCount;
+    [SerializeField] float _regenDelay;
+
+    int _maxNeedShotCount;
+    Color _startMaterialColor;
+    Color _startExplain3dTMP_Color;
+    Color _startNeedShotCount3dTMP_Color;
+
+    Coroutine _currentRegenCoroutine;
+    void Start()
+    {
+        _startMaterialColor = _baseMR.sharedMaterial.GetColor("_BaseColor");
+        _startExplain3dTMP_Color = _explain3dTMP.color;
+        _startNeedShotCount3dTMP_Color = _needShotCount3dTMP.color;
+
+        _maxNeedShotCount = _needShotCount;
+        _needShotCount3dTMP.gameObject.SetActive(false);
+        _propBlock = new MaterialPropertyBlock();
+    }
+    IEnumerator Regen(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        while (_needShotCount < _maxNeedShotCount)
+        {
+            _needShotCount++;
+            _needShotCount3dTMP.text = _needShotCount.ToString();
+            yield return new WaitForSeconds(0.4f);
+        }
+        _needShotCount3dTMP.gameObject.SetActive(false);
+        _explain3dTMP.gameObject.SetActive(true);
+        _currentRegenCoroutine = null;
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    int _onAimCount;
+    MaterialPropertyBlock _propBlock;
+    public void OnAimEnter(KindOfGunRay kindOfGunRay)
+    {
+        _onAimCount++;
+        if(_onAimCount != 1) return;
+        _propBlock.SetColor("_BaseColor",_startMaterialColor * _aimBrightness);
+        _baseMR.SetPropertyBlock(_propBlock);
+        _explain3dTMP.color = _startExplain3dTMP_Color * _aimBrightness; 
+        _needShotCount3dTMP.color = _startNeedShotCount3dTMP_Color * _aimBrightness;
+    }
+    public void OnAimExit(KindOfGunRay kindOfGunRay)
+    {
+        _onAimCount--;
+        if(_onAimCount != 0) return;
+        _propBlock.SetColor("_BaseColor",_startMaterialColor);
+        _baseMR.SetPropertyBlock(_propBlock);
+        _explain3dTMP.color = _startExplain3dTMP_Color; 
+        _needShotCount3dTMP.color = _startNeedShotCount3dTMP_Color;
+    }
+    int _collisionCount;
+    void OnCollisionEnter(Collision collision)
+    {
+        _collisionCount++;
+        Debug.Log(_collisionCount);
+        if(_collisionCount != 1) return;
+        if(_needShotCount == 0) return;
+        if (collision.gameObject.CompareTag("BlueBullet") || collision.gameObject.CompareTag("RedBullet"))
+        {
+            _needShotCount--;
+            _needShotCount3dTMP.text = _needShotCount.ToString();
+            if(_currentRegenCoroutine != null)
+            { StopCoroutine(_currentRegenCoroutine);}
+            _currentRegenCoroutine = StartCoroutine(Regen(_regenDelay));
+
+            if(_needShotCount == _maxNeedShotCount - 1)
+            {
+                _explain3dTMP.gameObject.SetActive(false);
+                _needShotCount3dTMP.gameObject.SetActive(true);
+            }
+
+            if(_needShotCount == 0)
+            {
+                StartCoroutine(InvokeCoroutine());
+            }
+        }
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        _collisionCount--;
+    }
+    IEnumerator InvokeCoroutine()
+    {
+        _breakAnimator.PlaySpinThenExplode(transform.position,Color.magenta,14,TMPorMeshRendererList);
+        yield return new WaitWhile(()=> _breakAnimator.CurtSpinThenExplodePhase != BreakAnimator.SpinThenExplodePhase.Explosion);
+        Utility.ChangeEnabledColliders(_colliderArray,false);
+        yield return new WaitWhile(()=> _breakAnimator.CurtSpinThenExplodePhase != BreakAnimator.SpinThenExplodePhase.Completed);
+        _onShoot.Invoke();
+        Destroy(gameObject);
+    }
+
+    // Update is called once per frame
+}
+

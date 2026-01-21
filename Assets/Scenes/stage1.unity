@@ -2191,9 +2191,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4901051787106768996, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5414808006530039386, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7502168588620174458, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668350871942819847, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8366587974966569960, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8968512702207713803, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: looping
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2212,7 +2232,7 @@ GameObject:
   - component: {fileID: 1863625513}
   - component: {fileID: 1863625512}
   m_Layer: 0
-  m_Name: gunLight
+  m_Name: PointLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2250,10 +2270,10 @@ Light:
   m_GameObject: {fileID: 1863625511}
   m_Enabled: 1
   serializedVersion: 11
-  m_Type: 0
+  m_Type: 2
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 4000
-  m_Range: 20
+  m_Intensity: 2000
+  m_Range: 90
   m_SpotAngle: 179
   m_InnerSpotAngle: 179
   m_CookieSize: 10

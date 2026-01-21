@@ -7,7 +7,9 @@ public class Gun : MonoBehaviour
     [SerializeField]Transform _muzzleTr;
     [SerializeField]GameObject _bullet;
     [SerializeField]Animator _animator;
-    [SerializeField]ParticleSystem _muzzleFlashPS;
+    [SerializeField]ParticleSystem _coreFlamePs;
+    [SerializeField]ParticleSystem _burstFlamePs;
+    [SerializeField]Light _muzzleFlashLight;
     RaycastHit _raycastHit;
     bool _isShot;
     
@@ -52,6 +54,14 @@ public class Gun : MonoBehaviour
     //これはFireと言う名のをAnimationClipにより呼ばれる関数です。
     public void OnStartShot()
     {
-        _muzzleFlashPS.Play();
+        _coreFlamePs.Play();
+        _burstFlamePs.transform.rotation = Quaternion.AngleAxis(Random.Range(0,3) * 15,_burstFlamePs.transform.forward);
+        _burstFlamePs.Play();
+        _muzzleFlashLight.enabled = true;
+    }
+    //これはFireと言う名のAnimationClipにより呼ばれる関数です。
+    public void OnEndShot()
+    {
+        _muzzleFlashLight.enabled = false;
     }
 }

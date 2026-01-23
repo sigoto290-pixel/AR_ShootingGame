@@ -1638,6 +1638,10 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6911074245675983948, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
+      propertyPath: _playerCam
+      value: 
+      objectReference: {fileID: 25100021}
     - target: {fileID: 6956640788666002870, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1716,7 +1720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8182940786236806791, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 68
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8354747562656261257, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_AnchorMax.x

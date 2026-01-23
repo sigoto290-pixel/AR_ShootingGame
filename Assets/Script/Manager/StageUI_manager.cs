@@ -50,7 +50,7 @@ public class StageUI_manager : MonoBehaviour
 
     void Start()
     {
-        _showWebCamera.SetWebCamTexture();
+        _showWebCamera.StartShowWebCam();
         GameManager.Current.StartFadeIn();
         _gameClearUIObj.SetActive(false);
         _indicatorToClear.SetActive(false);

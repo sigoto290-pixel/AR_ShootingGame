@@ -873,11 +873,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 6470430249299164594, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
   m_PrefabInstance: {fileID: 1237107923160260062}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &934204610 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8244815720060386616, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
-  m_PrefabInstance: {fileID: 1237107923160260062}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &934204611 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3221678509023341805, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
@@ -897,6 +892,11 @@ MonoBehaviour:
 --- !u!95 &1027209448 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3988621235576756576, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+  m_PrefabInstance: {fileID: 1237107923160260062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1042582456 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8836619283341090870, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
   m_PrefabInstance: {fileID: 1237107923160260062}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1056172611
@@ -1883,9 +1883,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 176448579038873554, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: m_CameraType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 371689877774610014, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_RenderMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 852436616158916041, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 852436616158916041, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 915823897852340192, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2055,6 +2067,18 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5101677773879177309, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: m_CameraType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101677773879177309, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: m_Cameras.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101677773879177309, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: 'm_Cameras.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1042582456}
     - target: {fileID: 5685051262182817600, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -2074,6 +2098,18 @@ PrefabInstance:
     - target: {fileID: 8366587974966569960, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745430404889497653, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: m_Name
+      value: webCamCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836619283341090870, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: m_ClearFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836619283341090870, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 8968512702207713803, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: lengthInSec
@@ -2319,7 +2355,7 @@ PrefabInstance:
     - target: {fileID: 735511438714011754, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 934204610}
+      objectReference: {fileID: 0}
     - target: {fileID: 905395868143364101, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_Color.b
       value: 0.04
@@ -2335,7 +2371,7 @@ PrefabInstance:
     - target: {fileID: 1106160871438544166, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 934204610}
+      objectReference: {fileID: 0}
     - target: {fileID: 1157333042604731781, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 1
@@ -2491,7 +2527,7 @@ PrefabInstance:
     - target: {fileID: 3050640201206839425, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 934204610}
+      objectReference: {fileID: 0}
     - target: {fileID: 3114659889920994959, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
@@ -2535,7 +2571,7 @@ PrefabInstance:
     - target: {fileID: 3749391519809913602, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 934204610}
+      objectReference: {fileID: 0}
     - target: {fileID: 4021180547454116141, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
@@ -2571,7 +2607,7 @@ PrefabInstance:
     - target: {fileID: 4530088497644199139, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: Camera
       value: 
-      objectReference: {fileID: 934204610}
+      objectReference: {fileID: 1042582456}
     - target: {fileID: 4530088497644199139, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: GunMuzzleTr
       value: 
@@ -2709,11 +2745,11 @@ PrefabInstance:
     - target: {fileID: 5990380957998060059, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: _camera
       value: 
-      objectReference: {fileID: 934204610}
+      objectReference: {fileID: 1042582456}
     - target: {fileID: 6383799198859413786, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: _camera
       value: 
-      objectReference: {fileID: 934204610}
+      objectReference: {fileID: 1042582456}
     - target: {fileID: 6570489341083283625, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_lineSpacing
       value: -40
@@ -2725,7 +2761,7 @@ PrefabInstance:
     - target: {fileID: 6911074245675983948, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: _playerCam
       value: 
-      objectReference: {fileID: 934204610}
+      objectReference: {fileID: 1042582456}
     - target: {fileID: 7162041652663342731, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2825,7 +2861,7 @@ PrefabInstance:
     - target: {fileID: 8016356819064573874, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 934204610}
+      objectReference: {fileID: 1042582456}
     - target: {fileID: 8354747562656261257, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2845,7 +2881,7 @@ PrefabInstance:
     - target: {fileID: 8420335595588004673, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: Camera
       value: 
-      objectReference: {fileID: 934204610}
+      objectReference: {fileID: 1042582456}
     - target: {fileID: 8420335595588004673, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: GunMuzzleTr
       value: 
@@ -2889,7 +2925,7 @@ PrefabInstance:
     - target: {fileID: 8678825891942253910, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 934204610}
+      objectReference: {fileID: 0}
     - target: {fileID: 9102543667872624302, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

@@ -15,11 +15,11 @@ public class Title2UI_Manager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    [SerializeField]WebCameraImage _webCameraImage;
+    [SerializeField]ShowWebCamera _showWebCamera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _webCameraImage.SetWebCamTexture();
+        _showWebCamera.StartShowWebCam();
         GameManager.Current.StartFadeIn();
     }
 

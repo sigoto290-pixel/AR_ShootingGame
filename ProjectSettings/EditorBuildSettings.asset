@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/title1.unity
+    path: Assets/Scenes/getWebCam.unity
     guid: 4f2eeac02a852d647861c5f3303d02a9
   - enabled: 1
-    path: Assets/Scenes/title2.unity
+    path: Assets/Scenes/title.unity
     guid: c630e685297bd7c43975bc542dd2c2b4
   - enabled: 1
     path: Assets/Scenes/stage1.unity

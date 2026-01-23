@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 
-public class CameraController : MonoBehaviour
+public class AttitudeTransformController : MonoBehaviour
 {
     Quaternion _initialAttitudeValueOffset;
     Quaternion _currentAttitudeValue;

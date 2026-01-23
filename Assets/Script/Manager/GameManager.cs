@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadTitle2()
     {
-        LoadScene("title2");
+        LoadScene("title");
         Time.timeScale = 1;
     }
     AsyncOperation _asyncLoad;

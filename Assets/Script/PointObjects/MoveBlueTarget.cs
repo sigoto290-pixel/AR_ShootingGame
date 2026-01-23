@@ -20,7 +20,7 @@ public class MoveBlueTarget : PointObject
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override (float nextActivationDelay,float lifeTime) Initialize()
     {
-        _playerTr = Player.currentPlayer.GetComponent<Transform>();
+        _playerTr = Player.Current.GetComponent<Transform>();
         _isVerticalToRotate = Random.Range(0, 2) == 1;
         _distanceForGenerate = PointObjectGenerater2.CurrentPointObjectGenerater2.DistanceForGenerate;
         _generateYawStep = PointObjectGenerater2.CurrentPointObjectGenerater2.GenerateYawStep;

@@ -82,9 +82,9 @@ public class StageUI_manager : MonoBehaviour
     public void GenerateScoreMultiplierText(int __scoreMultiplier)
     {
         Debug.Log("スコア倍率増加");
-        Vector3 playerPos = Player.currentPlayer.transform.position;
+        Vector3 playerPos = Player.Current.transform.position;
         GameObject gameObject = Instantiate(_scoreMultiplierTextObj);
-        gameObject.transform.position = Player.currentPlayer.transform.forward * 30;
+        gameObject.transform.position = Player.Current.transform.forward * 30;
         gameObject.transform.rotation = Quaternion.LookRotation(playerPos - gameObject.transform.position);
         gameObject.GetComponent<ScoreMultiplierText1>().ScoreMultiplier = __scoreMultiplier;
     }
@@ -121,7 +121,7 @@ public class StageUI_manager : MonoBehaviour
         score = Math.Round(score,1);
         accidentalShoot = Math.Round(accidentalShoot,1);
         _gameClearUIObj.SetActive(true);
-        _gameClearUIObj.transform.RotateAround(Player.currentPlayer.transform.position, Vector3.up, Player.currentPlayer.transform.rotation.eulerAngles.y);
+        _gameClearUIObj.transform.RotateAround(Player.Current.transform.position, Vector3.up, Player.Current.transform.rotation.eulerAngles.y);
         _indicatorToClear.SetActive(true);
 
         _perfectCountTM.text = perfectCount.ToString();

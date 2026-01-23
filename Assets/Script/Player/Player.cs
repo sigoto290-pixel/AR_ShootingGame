@@ -3,12 +3,12 @@ using Audio;
 using System.Collections;
 public class Player : MonoBehaviour
 {
-    public static  Player currentPlayer;
+    public static  Player Current;
     void Awake()
     {
-        if (currentPlayer == null)
+        if (Current == null)
         {
-            currentPlayer = this;
+            Current = this;
         }
         else
         {

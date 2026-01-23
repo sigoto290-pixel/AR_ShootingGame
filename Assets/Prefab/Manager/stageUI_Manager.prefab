@@ -9406,9 +9406,8 @@ GameObject:
   - component: {fileID: 8182940786236806791}
   - component: {fileID: 8190397553113254713}
   - component: {fileID: 2207355179530085354}
-  - component: {fileID: 1842399645444855359}
   - component: {fileID: 6911074245675983948}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShowWebCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9483,28 +9482,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1842399645444855359
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3129130070764033030}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &6911074245675983948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9517,7 +9494,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862590e251f7cd54d8c9e4acb969e76b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fps: 0
+  _playerCam: {fileID: 0}
+  _currentPhase: 0
 --- !u!1 &3153933443662810188
 GameObject:
   m_ObjectHideFlags: 0
@@ -19277,8 +19255,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8359988442674162717}
-  m_Layer: 0
-  m_Name: StandardUI
+  m_Layer: 6
+  m_Name: webCamCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

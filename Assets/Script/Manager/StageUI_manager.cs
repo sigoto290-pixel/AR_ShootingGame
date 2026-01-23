@@ -18,7 +18,7 @@ public class StageUI_manager : MonoBehaviour
         }
     }
     [Header("#通常のUIに関するメンバ")]
-    [SerializeField]WebCameraImage _webCameraImage;
+    [SerializeField]ShowWebCamera _showWebCamera;
     [SerializeField] GameObject _indicatorToTarget;
     [SerializeField] GameObject _indicatorsUIObj;
     [SerializeField] TextMeshProUGUI _timeTextTM;
@@ -50,7 +50,7 @@ public class StageUI_manager : MonoBehaviour
 
     void Start()
     {
-        _webCameraImage.SetWebCamTexture();
+        _showWebCamera.SetWebCamTexture();
         GameManager.Current.StartFadeIn();
         _gameClearUIObj.SetActive(false);
         _indicatorToClear.SetActive(false);

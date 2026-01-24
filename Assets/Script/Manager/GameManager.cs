@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public bool FadeInComplete = true;
     [Header("#設定用")]
     public Difficult CurrentDifficult = Difficult.normal;
+    public bool IsRunningInEditor;
     [Header("##シーン遷移時のアニメーション用")]
     [SerializeField] Slider _sceneLoadProgressSlider;
 

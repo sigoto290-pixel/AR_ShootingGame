@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor.UI;
 using UnityEngine;
 
 public class ShowWebCamera : MonoBehaviour
@@ -28,7 +27,7 @@ public class ShowWebCamera : MonoBehaviour
         //プレイヤーのカメラからの距離を取得
         _startDistance = Vector3.Distance(_playerCam.transform.position,transform.position);
     }
-    void Update()
+    void LateUpdate()
     {
         transform.position = _playerCam.transform.forward * _startDistance;
         transform.rotation = Quaternion.LookRotation(_playerCam.transform.forward);
@@ -61,6 +60,7 @@ public class ShowWebCamera : MonoBehaviour
         yield return new WaitWhile(()=>GameManager.Current.WebCamTexture.isPlaying == false);
         MaterialPropertyBlock propBlock = new MaterialPropertyBlock();
         propBlock.SetTexture("_BaseMap",GameManager.Current.WebCamTexture);
+        propBlock.SetTexture("_EmissionMap",GameManager.Current.WebCamTexture);
         _meshRenderer.SetPropertyBlock(propBlock);
         _currentPhase = phase.waitingWebCamResolution;
     }

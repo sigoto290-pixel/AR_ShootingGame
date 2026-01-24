@@ -1,6 +1,7 @@
 
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using AttitudeSensor = UnityEngine.InputSystem.AttitudeSensor;
@@ -31,7 +32,16 @@ public class Title1UI_Manager : MonoBehaviour
     [SerializeField]WebCameraImage _webCameraImage;
     [SerializeField]TextMeshProUGUI _webCumNumberText;
 
-    [SerializeField]GameObject _changeWebCamsObj;
+    [SerializeField]GameObject _changeWebCamsObj ;  
+
+    [SerializeField]phase _currentPhase;
+    enum phase
+    {
+        idle,
+        enablingAttitudeSensor,
+        waitingForVertical,
+        completed 
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,16 +58,10 @@ public class Title1UI_Manager : MonoBehaviour
         }
 
     }
-
-    // Update is called once per frame
-    void Update()
+    public void StartAR_Game()
     {
-        
-    }
-    public void GetWebCameraTextureButton()
-    {
-        StartCoroutine(OneShot());
-        IEnumerator OneShot()
+        StartCoroutine(Main());
+        IEnumerator Main()
         {
             yield return new WaitWhile(() => Application.HasUserAuthorization(UserAuthorization.WebCam) == false);
             if(AttitudeSensor.current != null)

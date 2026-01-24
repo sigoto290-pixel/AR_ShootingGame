@@ -663,7 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862590e251f7cd54d8c9e4acb969e76b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerCam: {fileID: 2124877456}
+  _playerCam: {fileID: 1159533529}
   _currentPhase: 0
 --- !u!23 &193044399
 MeshRenderer:
@@ -6732,6 +6732,7 @@ GameObject:
   - component: {fileID: 1159533531}
   - component: {fileID: 1159533529}
   - component: {fileID: 1159533530}
+  - component: {fileID: 1159533532}
   m_Layer: 0
   m_Name: mainCamera
   m_TagString: Untagged
@@ -6850,6 +6851,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 95431890}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1159533532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159533528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1001 &1167410463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8770,7 +8787,7 @@ PrefabInstance:
     - target: {fileID: 5001650904417642664, guid: 739377a5d71bbac4799ef8a4a8de7102, type: 3}
       propertyPath: _camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1159533529}
     - target: {fileID: 5001650904417642664, guid: 739377a5d71bbac4799ef8a4a8de7102, type: 3}
       propertyPath: TargetTr
       value: 
@@ -14929,7 +14946,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 2124877456}
   m_PlaneDistance: 1000
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -22540,7 +22557,6 @@ GameObject:
   - component: {fileID: 2124877459}
   - component: {fileID: 2124877456}
   - component: {fileID: 2124877458}
-  - component: {fileID: 2124877457}
   m_Layer: 0
   m_Name: webCamCamera
   m_TagString: Untagged
@@ -22599,22 +22615,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &2124877457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124877455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EventMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_MaxRayIntersections: 0
 --- !u!114 &2124877458
 MonoBehaviour:
   m_ObjectHideFlags: 0

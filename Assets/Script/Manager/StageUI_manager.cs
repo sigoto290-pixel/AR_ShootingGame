@@ -35,16 +35,8 @@ public class StageUI_manager : MonoBehaviour
     [SerializeField]GameObject _perfectTextPrefab;
 
 
-    [SerializeField,Header("#ゲームクリアUIに関するメンバ")]
-    GameObject _gameClearUIObj;
-    [SerializeField] GameObject _indicatorToClear;
-    [SerializeField] TextMeshPro _breakableCountTM;
-    [SerializeField] TextMeshPro _perfectCountTM;
-    [SerializeField] TextMeshPro _greatCountTM;
-    [SerializeField] TextMeshPro _goodCountTM;
-    [SerializeField] TextMeshPro _overlookCountTM;
-    [SerializeField] TextMeshPro _totalScoreTM;
-    [SerializeField] TextMeshPro _accidentalShoot;
+    [SerializeField,Header("#その他")]
+    GameClearUI _gameClearUI;
 
 
 
@@ -52,8 +44,7 @@ public class StageUI_manager : MonoBehaviour
     {
         _aR_BackGround.StartShowWebCam();
         GameManager.Current.StartFadeIn();
-        _gameClearUIObj.SetActive(false);
-        _indicatorToClear.SetActive(false);
+        _gameClearUI.Hide();
         _indicatorToTarget.SetActive(false);
     }
 
@@ -118,20 +109,7 @@ public class StageUI_manager : MonoBehaviour
     }
     public void ShowGameClearUI(double score, double accidentalShoot,int perfectCount,int greatCount,int goodCount,int overlookCount)
     {
-        score = Math.Round(score,1);
-        accidentalShoot = Math.Round(accidentalShoot,1);
-        _gameClearUIObj.SetActive(true);
-        _gameClearUIObj.transform.RotateAround(Player.Current.transform.position, Vector3.up, Player.Current.transform.rotation.eulerAngles.y);
-        _indicatorToClear.SetActive(true);
-
-        _perfectCountTM.text = perfectCount.ToString();
-        _greatCountTM.text = greatCount.ToString();
-        _goodCountTM.text = goodCount.ToString();
-        _overlookCountTM.text = overlookCount.ToString();
-        _breakableCountTM.text = (overlookCount + goodCount + greatCount + perfectCount).ToString();
-
-        _accidentalShoot.text = accidentalShoot.ToString();
-        _totalScoreTM.text = (score - accidentalShoot).ToString();
+        _gameClearUI.Show(score,accidentalShoot,perfectCount,greatCount,goodCount,overlookCount);
     }
     public Indicator2 GenerateIndicatorToTarget(Transform targetTr)
     {

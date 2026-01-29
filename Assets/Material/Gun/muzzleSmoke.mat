@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: muzzleFlash
-  m_Shader: {fileID: -6465566751694194690, guid: dcba8b11c0f27f34e90fdc959d3b8c50, type: 3}
+  m_Name: muzzleSmoke
+  m_Shader: {fileID: -6465566751694194690, guid: 3248feb9a01d67f45861852e848d54e4, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -129,7 +129,7 @@ Material:
     - _Surface: 1
     - _WorkflowMode: 1
     - _ZWrite: 0
-    - _intensity: 8
+    - _intensity: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}

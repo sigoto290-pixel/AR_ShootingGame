@@ -10,6 +10,7 @@ public class PlayerGun : MonoBehaviour
     [SerializeField]Animator _animator;
     [SerializeField]ParticleSystem _coreFlamePs;
     [SerializeField]ParticleSystem _burstFlamePs;
+    [SerializeField]ParticleSystem _muzzleSmokePs;
     [SerializeField]ParticleSystem _shellEjectPs;
     [SerializeField]Light _dualMuzzleFlashLight;
     [SerializeField]PlayerGun _partnerGun;
@@ -64,6 +65,7 @@ public class PlayerGun : MonoBehaviour
         _baseRotationOfBurstFlame = (int)Mathf.Repeat(_baseRotationOfBurstFlame + 1,2);
         _burstFlamePs.transform.localRotation = Quaternion.Euler(0,0,_baseRotationOfBurstFlame * 36);
         _burstFlamePs.Play();
+        _muzzleSmokePs.Play();
         switch (_playingShotAnim)
         {
             case 1:

@@ -1271,7 +1271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2460459334237524342, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 60
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2565428576901379120, guid: aa38c4caf73da8d409e36990b0eda9ba, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2112,10 +2112,6 @@ PrefabInstance:
     - target: {fileID: 2854555588966200804, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2900435465325158671, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3221678509023341805, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_LocalPosition.x

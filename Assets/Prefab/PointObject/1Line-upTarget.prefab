@@ -2260,7 +2260,6 @@ MonoBehaviour:
   MainObj: {fileID: 5608414479450518256}
   PointObjectCost: 4
   NextGeneratableCount: 1
-  <OffsetActivationDelay>k__BackingField: 2
   LifeTimeGUI_MR: {fileID: 1628520991079213297}
   _targetBreakAnimator: {fileID: 4994112954404491780}
   PointObjectPos: {x: 0, y: 0}

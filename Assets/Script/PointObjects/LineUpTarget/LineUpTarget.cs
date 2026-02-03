@@ -2,8 +2,6 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using NUnit.Framework;
 
 public class LineUpTarget : PointObject
 {
@@ -23,7 +21,7 @@ public class LineUpTarget : PointObject
     GameObject _generatedPlaneObj;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public override (float nextBaseActivationDelay,float lifeTime) Initialize()
+    public override InitializeResult Initialize()
     {
         _planeCount = Random.Range(MinPlaneCount, MaxPlaneCount + 1);
         PlaneForLineUp instancePlaneForLineUp;
@@ -45,24 +43,44 @@ public class LineUpTarget : PointObject
             _generatedPlaneObj.SetActive(true);
             _setPlanes[generatedCount] = _generatedPlaneObj;
         }
+        SetRotationInterval();
         switch (GameManager.Current.CurrentDifficult)
         {
             case GameManager.Difficult.easy:
-            _nextShowPlaneInterval = FourthNote;
-            OffsetActivationDelay = FourthNote * 2;
-            break;
+            return new InitializeResult(
+                        _nextShowPlaneInterval * _planeCount + FourthNote,
+                        _nextShowPlaneInterval * _planeCount * 2,
+                        FourthNote
+                    );
             case GameManager.Difficult.normal:
-            _nextShowPlaneInterval = FourthNote;
-            OffsetActivationDelay = FourthNote * 2;
-            break;
+            return new InitializeResult(
+                        _nextShowPlaneInterval * _planeCount + FourthNote,
+                        _nextShowPlaneInterval * _planeCount * 2,
+                        FourthNote
+                    );
             case GameManager.Difficult.hard:
-            _nextShowPlaneInterval = FourthNote + EighthNote;
-            OffsetActivationDelay = FourthNote * 2;
-            break;
+            return new InitializeResult(
+                        _nextShowPlaneInterval * _planeCount + FourthNote,
+                        _nextShowPlaneInterval * _planeCount * 2,
+                        FourthNote * 2
+                    );
+            default:
+                Debug.LogError("未対応の難易度が選択されています。");
+            return new InitializeResult();
+             
         }
-        SetRotationInterval();
-        return (_nextShowPlaneInterval * _planeCount,
-               _nextShowPlaneInterval * _planeCount * 2);
+    }
+    public int hoge()
+    {
+        int y = Random.Range(0,2);
+        if(y == 1)
+        {
+            return 1;
+        }
+        else
+        {
+            return 2;
+        }
     }
     public override void TimeOver()
     {

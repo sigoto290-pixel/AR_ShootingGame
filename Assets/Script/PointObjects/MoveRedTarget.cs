@@ -17,7 +17,7 @@ public class MoveRedTarget : PointObject
     float _startGeneratePitch;
     float _pingPongTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public override (float nextBaseActivationDelay,float lifeTime) Initialize()
+    public override InitializeResult Initialize()
     {
         _playerTr = Player.Current.GetComponent<Transform>();
         _isVerticalToRotate = Random.Range(0, 2) == 1;
@@ -34,7 +34,33 @@ public class MoveRedTarget : PointObject
         {
             _pingPongTime = 1 * IntervalForMove / 2;
         }
-        return (FourthNote,FourthNote * 5);
+        ActivateMain();
+        switch (GameManager.Current.CurrentDifficult)
+        {
+            case GameManager.Difficult.easy:
+            return new InitializeResult(
+                        FourthNote,
+                        FourthNote * 5,
+                        0
+                    );
+            case GameManager.Difficult.normal:
+            return new InitializeResult(
+                        FourthNote,
+                        FourthNote * 5,
+                        0
+                    );
+            case GameManager.Difficult.hard:
+            return new InitializeResult(
+                        FourthNote,
+                        FourthNote * 5,
+                        0
+                    );
+            default:
+                Debug.LogError("未対応の難易度が選択されています。");
+            return new InitializeResult();
+             
+        }
+
     }
     public override void TimeOver()
     {

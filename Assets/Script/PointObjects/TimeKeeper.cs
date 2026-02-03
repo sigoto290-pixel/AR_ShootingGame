@@ -23,7 +23,7 @@ public class TimeKeeper : MonoBehaviour
     [SerializeField]float _sumNextActivationDelay;
     [SerializeField] int _nextGeneratableCount;
     //BaseActivationDelayとPointObjectが持つoffsetActivationDelayにより最終的に決まる有効化の遅延時間
-    [SerializeField] float _activationDelay;
+    [SerializeField] float _finalActivationDelay;
 
     public enum TargetState
     {
@@ -42,20 +42,20 @@ public class TimeKeeper : MonoBehaviour
         StartCoroutine(ManageLifeCycle());
         IEnumerator ManageLifeCycle()
         {
+            //対応するポイントオブジェクトの有効化に必要な情報や次のポイントオブジェクトの生成に有効な情報を取得
             AllInitializePointObject();
-            //対応するポイントオブジェクトの有効化に要する時間を計算
             CalculateActivationDelay();
             //対応するポイントオブジェクトの有効化までの時間可視化する関数を実行
-            AllPlayAddLifeTimeGUI(_activationDelay);
+            AllPlayAddLifeTimeGUI(_finalActivationDelay);
             //ポイントオブジェクトの有効化時の出現アニメーションの所要時間を考慮して待機
-            yield return new WaitForSeconds(_activationDelay - _activateAnimRate *_activationDelay);
+            yield return new WaitForSeconds(_finalActivationDelay - _activateAnimRate *_finalActivationDelay);
             CurrentTargetState = TargetState.Activating;
             CurrentTaimingState = TimingState.GoodTiming;
             //ポイントオブジェクトの有効化処理と出現アニメーションの再生
             AllActivateMain();
-            AllPlayActivateAnim(_activateAnimRate * _activationDelay);
+            AllPlayActivateAnim(_activateAnimRate * _finalActivationDelay);
             //出現アニメーションの所要時間分待機
-            yield return new WaitForSeconds(_activateAnimRate * _activationDelay);
+            yield return new WaitForSeconds(_activateAnimRate * _finalActivationDelay);
             CurrentTargetState = TargetState.ActivationCompleted;
             CurrentTaimingState = TimingState.PerfectTiming;
             AllAddPointObjectCost();
@@ -75,28 +75,29 @@ public class TimeKeeper : MonoBehaviour
         }
         void AllInitializePointObject(){
             _nextGeneratableCount =TargetPointObjectList[0].NextGeneratableCount;
+            _finalActivationDelay = BaseActivationDelay;
             foreach(PointObject targetPointObject in TargetPointObjectList){
                 if(targetPointObject == null) continue;
                 targetPointObject.TargetTimeKeeper = this;
-                (float nextActivationDelay,float lifeTime) = targetPointObject.Initialize();
-                _sumNextActivationDelay += nextActivationDelay;
-                _sumLifeTime += lifeTime;
+                PointObject.InitializeResult initializeResult = targetPointObject.Initialize();
+                _sumNextActivationDelay += initializeResult.NextBaseActivationDelay;
+                _sumLifeTime += initializeResult.LifeTime;
+                _finalActivationDelay += initializeResult.OffsetActivationDelay;
             }
 
         }
 
         void CalculateActivationDelay()
         {
-            _activationDelay = BaseActivationDelay;
             foreach(PointObject targetPointObject in TargetPointObjectList){
-                _activationDelay += targetPointObject.OffsetActivationDelay;
+                _finalActivationDelay += targetPointObject.OffsetActivationDelay;
             }
 
         }
         void AllPlayAddLifeTimeGUI(float activationDelay){
             foreach(PointObject targetPointObject in TargetPointObjectList){
                 if(targetPointObject == null) continue;
-                targetPointObject.PlayAddLifeTimeGUI(_activationDelay);
+                targetPointObject.PlayAddLifeTimeGUI(_finalActivationDelay);
             }
         }
         void AllActivateMain()

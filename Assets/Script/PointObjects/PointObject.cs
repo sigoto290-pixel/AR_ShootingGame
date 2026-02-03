@@ -33,8 +33,20 @@ public abstract class PointObject : MonoBehaviour
 
 
     
+    public struct InitializeResult
+    {
+        public float NextBaseActivationDelay;
+        public float LifeTime;
+        public float OffsetActivationDelay;
+        public InitializeResult(float nextBaseActivationDelay,float lifeTime,float offsetActivationDelay)
+        {
+            NextBaseActivationDelay = nextBaseActivationDelay;
+            LifeTime = lifeTime;
+            OffsetActivationDelay = offsetActivationDelay;
+        }
+    }
 
-    public abstract (float nextBaseActivationDelay,float lifeTime) Initialize();
+    public abstract InitializeResult Initialize();
     public abstract void TimeOver();
     public void PlayActivateAnim(float activateAnimDuration)
     {
@@ -132,7 +144,6 @@ public abstract class PointObject : MonoBehaviour
     }
 
     abstract protected IEnumerator BreakCoroutine();
-
 }
 [Serializable]
 public class TMPandMeshRenderer

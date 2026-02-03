@@ -10,10 +10,34 @@ public class RedBlueTarget : PointObject
     int _currentPlaneCount = 2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public override (float nextBaseActivationDelay,float lifeTime) Initialize()
+    public override InitializeResult Initialize()
     {
         ActivateMain();
-        return (FourthNote,FourthNote * 5);
+        switch (GameManager.Current.CurrentDifficult)
+        {
+            case GameManager.Difficult.easy:
+            return new InitializeResult(
+                        FourthNote,
+                        FourthNote * 5,
+                        0
+                    );
+            case GameManager.Difficult.normal:
+            return new InitializeResult(
+                        FourthNote,
+                        FourthNote * 5,
+                        0
+                    );
+            case GameManager.Difficult.hard:
+            return new InitializeResult(
+                        FourthNote,
+                        FourthNote * 5,
+                        0
+                    );
+            default:
+                Debug.LogError("未対応の難易度が選択されています。");
+            return new InitializeResult();
+             
+        }
     }
     public override void TimeOver()
     {

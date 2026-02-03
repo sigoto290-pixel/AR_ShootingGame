@@ -11,13 +11,36 @@ public class ButtonMashingTarget : PointObject
     public TextMeshPro NeedShotCountText;
     [SerializeField]bool _isDestruction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public override (float nextBaseActivationDelay,float lifeTime) Initialize()
+    public override InitializeResult Initialize()
     {
         Hp = Random.Range(MinHp, MaxHp);
         NeedShotCountText.text = Hp.ToString();
         ActivateMain();
-        return (SixteenthNote * Hp + EighthNote,
-               SixteenthNote * Hp * 4);     
+        switch (GameManager.Current.CurrentDifficult)
+        {
+            case GameManager.Difficult.easy:
+            return new InitializeResult(
+                        SixteenthNote * Hp + EighthNote,
+                        SixteenthNote * Hp * 4,
+                        0
+                    );
+            case GameManager.Difficult.normal:
+            return new InitializeResult(
+                        SixteenthNote * Hp + EighthNote,
+                        SixteenthNote * Hp * 4,
+                        0
+                    );
+            case GameManager.Difficult.hard:
+            return new InitializeResult(
+                        SixteenthNote * Hp + EighthNote,
+                        SixteenthNote * Hp * 4,
+                        0
+                    );
+            default:
+                Debug.LogError("未対応の難易度が選択されています。");
+            return new InitializeResult();
+             
+        }
     }
     public override void TimeOver()
     {

@@ -62,7 +62,7 @@ public class LineUpTarget : PointObject
             return new InitializeResult(
                         _nextShowPlaneInterval * _planeCount + FourthNote,
                         _nextShowPlaneInterval * _planeCount * 2,
-                        FourthNote * 2
+                        FourthNote
                     );
             default:
                 Debug.LogError("未対応の難易度が選択されています。");

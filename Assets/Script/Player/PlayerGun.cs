@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Audio;
+using Unity.VisualScripting;
 
 public class PlayerGun : MonoBehaviour
 {
     public Light SingleMuzzleFlashLight;
+    [SerializeField]Light _frontLight;
+    [SerializeField]Material _shellMaterialForAddIntensity;
+    [SerializeField]Material[] _gunMaterialsForAddIntensity;
     [SerializeField]Transform _muzzleTr;
     [SerializeField]GameObject _bullet;
     [SerializeField]Animator _animator;
@@ -15,12 +19,12 @@ public class PlayerGun : MonoBehaviour
     [SerializeField]Light _dualMuzzleFlashLight;
     [SerializeField]PlayerGun _partnerGun;
     RaycastHit _raycastHit;
+    static Color _startShellMaterialColor;
     bool _isShot;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -60,15 +64,27 @@ public class PlayerGun : MonoBehaviour
     static int _playingShotAnim;
     public void OnStartShot()
     {
-        _playingShotAnim ++;
         _coreFlamePs.Play();
         _baseRotationOfBurstFlame = (int)Mathf.Repeat(_baseRotationOfBurstFlame + 1,2);
         _burstFlamePs.transform.localRotation = Quaternion.Euler(0,0,_baseRotationOfBurstFlame * 36);
         _burstFlamePs.Play();
         _muzzleSmokePs.Play();
+        //ライトの数を違和感なく減らすための処理　これによって軽量化を図る。
+        _playingShotAnim ++;
         switch (_playingShotAnim)
         {
             case 1:
+                Color materialEmissionColor = _shellMaterialForAddIntensity.GetColor("_EmissionColor");
+                materialEmissionColor *= 1.2f;
+                _shellMaterialForAddIntensity.SetColor("_EmissionColor",materialEmissionColor);
+
+                foreach(Material material in _gunMaterialsForAddIntensity)
+                {
+                    materialEmissionColor = material.GetColor("_EmissionColor");
+                    materialEmissionColor *= 3f;
+                    material.SetColor("_EmissionColor",materialEmissionColor);
+                }
+                _frontLight.enabled = false;
                 SingleMuzzleFlashLight.enabled = true;
             break;
             case 2:
@@ -85,6 +101,7 @@ public class PlayerGun : MonoBehaviour
     //これはFireと言う名のAnimationClipにより呼ばれる関数です。
     public void OnEndShot()
     {
+        //ライトの数を違和感なく減らすための処理　これによって軽量化を図る。
         _playingShotAnim --;
         switch (_playingShotAnim)
         {
@@ -93,7 +110,18 @@ public class PlayerGun : MonoBehaviour
                 _partnerGun.SingleMuzzleFlashLight.enabled = true;
             break;
             case 0:
+                Color materialEmissionColor = _shellMaterialForAddIntensity.GetColor("_EmissionColor");
+                materialEmissionColor /= 1.2f;
+                _shellMaterialForAddIntensity.SetColor("_EmissionColor",materialEmissionColor);
+
+                foreach(Material material in _gunMaterialsForAddIntensity)
+                {
+                    materialEmissionColor = material.GetColor("_EmissionColor");
+                    materialEmissionColor /= 3f;
+                    material.SetColor("_EmissionColor",materialEmissionColor);
+                }
                SingleMuzzleFlashLight.enabled = false;
+                _frontLight.enabled = true;
             break;
         }        
 

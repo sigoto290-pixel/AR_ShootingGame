@@ -1891,6 +1891,10 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 662414525085695870, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 852436616158916041, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_ClearFlags
       value: 1
@@ -1907,6 +1911,46 @@ PrefabInstance:
       propertyPath: _shellEjectPs
       value: 
       objectReference: {fileID: 1237107923160260063}
+    - target: {fileID: 1325169620497805264, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: _materialsForAddIntensity.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1325169620497805264, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: '_materialsForAddIntensity.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ab3876bf1a4663d4dad760e5e0d0a1a4, type: 2}
+    - target: {fileID: 1325169620497805264, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: '_materialsForAddIntensity.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 745c19989c691f947a72700d15278386, type: 2}
+    - target: {fileID: 1325169620497805264, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: '_materialsForAddIntensity.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 074728f7d95a67b4a9ff039cb0386227, type: 2}
+    - target: {fileID: 1325169620497805264, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: '_materialsForAddIntensity.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: edaf56b07ecfcc4408acabbbdef372a4, type: 2}
+    - target: {fileID: 1549028200473240758, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: _materialsForAddIntensity.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549028200473240758, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: '_materialsForAddIntensity.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 745c19989c691f947a72700d15278386, type: 2}
+    - target: {fileID: 1549028200473240758, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: '_materialsForAddIntensity.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ab3876bf1a4663d4dad760e5e0d0a1a4, type: 2}
+    - target: {fileID: 1549028200473240758, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: '_materialsForAddIntensity.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 074728f7d95a67b4a9ff039cb0386227, type: 2}
+    - target: {fileID: 1549028200473240758, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: '_materialsForAddIntensity.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: edaf56b07ecfcc4408acabbbdef372a4, type: 2}
     - target: {fileID: 1607326501893218220, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: _redGunAnim
       value: 

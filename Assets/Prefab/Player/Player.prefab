@@ -5891,6 +5891,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SingleMuzzleFlashLight: {fileID: 8425627985837677622}
+  _frontLight: {fileID: 662414525085695870}
+  _shellMaterialForAddIntensity: {fileID: 2100000, guid: edaf56b07ecfcc4408acabbbdef372a4, type: 2}
+  _gunMaterialsForAddIntensity:
+  - {fileID: 2100000, guid: 745c19989c691f947a72700d15278386, type: 2}
+  - {fileID: 2100000, guid: ab3876bf1a4663d4dad760e5e0d0a1a4, type: 2}
+  - {fileID: 2100000, guid: 074728f7d95a67b4a9ff039cb0386227, type: 2}
+  - {fileID: 2100000, guid: 84b87420af63f6342a0e013d2e6a99f3, type: 2}
   _muzzleTr: {fileID: 6004163624834825771}
   _bullet: {fileID: 1029726200740369141, guid: abfa41eefa7763844a3c8d18aac2609a, type: 3}
   _animator: {fileID: 6470430249299164594}
@@ -6506,6 +6513,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SingleMuzzleFlashLight: {fileID: 9050766463561635084}
+  _frontLight: {fileID: 662414525085695870}
+  _shellMaterialForAddIntensity: {fileID: 2100000, guid: edaf56b07ecfcc4408acabbbdef372a4, type: 2}
+  _gunMaterialsForAddIntensity:
+  - {fileID: 2100000, guid: 745c19989c691f947a72700d15278386, type: 2}
+  - {fileID: 2100000, guid: ab3876bf1a4663d4dad760e5e0d0a1a4, type: 2}
+  - {fileID: 2100000, guid: 074728f7d95a67b4a9ff039cb0386227, type: 2}
+  - {fileID: 2100000, guid: 84b87420af63f6342a0e013d2e6a99f3, type: 2}
   _muzzleTr: {fileID: 5544918139465247867}
   _bullet: {fileID: 1029726200740369141, guid: 102a254c8143c8f4282aad76bfec7120, type: 3}
   _animator: {fileID: 3988621235576756576}
@@ -11943,7 +11957,7 @@ Transform:
   m_GameObject: {fileID: 4466780476393556987}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 2, z: 5}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11960,7 +11974,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 2000
+  m_Intensity: 4000
   m_Range: 1200
   m_SpotAngle: 179
   m_InnerSpotAngle: 179
@@ -37970,7 +37984,7 @@ Transform:
   m_GameObject: {fileID: 7876222955440558248}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 3.6, z: 2.5}
+  m_LocalPosition: {x: 0, y: 3.6, z: 2.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37987,7 +38001,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 4000
+  m_Intensity: 6000
   m_Range: 1200
   m_SpotAngle: 179
   m_InnerSpotAngle: 179
@@ -43663,7 +43677,7 @@ Transform:
   m_GameObject: {fileID: 9157709345105205738}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 2, z: 5}
+  m_LocalPosition: {x: 0, y: 2, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43680,7 +43694,7 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 2000
+  m_Intensity: 4000
   m_Range: 1200
   m_SpotAngle: 179
   m_InnerSpotAngle: 179

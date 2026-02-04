@@ -2907,10 +2907,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebugUI_Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 6946560364416005127, guid: 20ad6f4eca374b344a199b2ec81ac1f5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8970440467654576051, guid: 20ad6f4eca374b344a199b2ec81ac1f5, type: 3}
       propertyPath: m_IsActive
       value: 0

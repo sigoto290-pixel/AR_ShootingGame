@@ -164,6 +164,16 @@ public class StageUI_manager : MonoBehaviour
     {
         GameManager.Current.LoadScene(stageName);
     }
+    public void StartFullScreenButton()
+    {
+        Screen.fullScreen = true;
+        _aR_BackGround.ReCaluculateScale();
+    }
+    public void ExitFullScreenButton()
+    {
+        Screen.fullScreen = false;
+        _aR_BackGround.ReCaluculateScale();
+    }
 
 }
     public enum TimingState

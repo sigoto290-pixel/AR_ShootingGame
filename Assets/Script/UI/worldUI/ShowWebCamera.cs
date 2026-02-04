@@ -69,6 +69,7 @@ public class AR_BackGround : MonoBehaviour
         yield return new WaitWhile(()=>GameManager.Current.WebCamTexture.width < 100);
         _currentPhase = phase.calculatingScale;
     }
+    //この関数は数学雑魚すぎてAIに投げた　人間失格です。
     void CaluculateScale()
     {
         // MeshFilterコンポーネントを取得
@@ -125,5 +126,9 @@ public class AR_BackGround : MonoBehaviour
         transform.localScale = new Vector3(scaleX, scaleY, 1f);
 
         _currentPhase = phase.Completed;
+    }
+    public void ReCaluculateScale()
+    {
+        CaluculateScale();
     }
 }

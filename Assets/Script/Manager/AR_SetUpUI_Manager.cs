@@ -102,7 +102,7 @@ public class AR_SetUpUI_Manager : MonoBehaviour
         {
             _notifierTextToUser.text = "背面カメラを取得中";
             yield return new WaitForSeconds(1f);
-            DebugUI_manager.DebugUI_Manager.UpdateCameraDeviceLength(WebCamTexture.devices.Length.ToString());
+            DebugUI_manager.DebugUI_Manager?.UpdateCameraDeviceLength(WebCamTexture.devices.Length.ToString());
             foreach (WebCamDevice webCamDevice in WebCamTexture.devices)
             {
                 if (webCamDevice.isFrontFacing == false)

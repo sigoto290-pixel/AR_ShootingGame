@@ -38,5 +38,15 @@ public class TitleUI_Manager : MonoBehaviour
         GameManager.Current.ResetRotation();
         SoundManager.Current.PlayOneShot2D_SE(OneShot.downButton,0.7f);
     }
+    public void StartFullScreenButton()
+    {
+        Screen.fullScreen = true;
+        _aR_BackGround.ReCaluculateScale();
+    }
+    public void ExitFullScreenButton()
+    {
+        Screen.fullScreen = false;
+        _aR_BackGround.ReCaluculateScale();
+    }
 
 }

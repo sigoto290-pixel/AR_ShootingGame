@@ -2275,7 +2275,7 @@ MonoBehaviour:
   AxisTr: {fileID: 3105128837219875812}
   MaxPlaneCount: 4
   MinPlaneCount: 4
-  _nextShowPlaneInterval: 1
+  _nextShowPlaneInterval: 0
   _setPlanes: []
   _planeCount: 0
 --- !u!114 &4994112954404491780

@@ -11,10 +11,12 @@ public class LineUpTarget : PointObject
     public int MaxPlaneCount = 7;
     public int MinPlaneCount = 5;
     [Header("表示用")]
+    //次の的が来るまでに必要な時間
     [SerializeField] float _nextShowPlaneInterval;
     [SerializeField] GameObject[] _setPlanes;
     [SerializeField] int _planeCount;
     float _pitchRotationStep;
+    //一回転するまでに必要な時間
     float _rotationInterval;
     TextMeshPro[] _needShotCountTexts;
     GameObject _generatePlaneObj;
@@ -43,22 +45,27 @@ public class LineUpTarget : PointObject
             _generatedPlaneObj.SetActive(true);
             _setPlanes[generatedCount] = _generatedPlaneObj;
         }
-        SetRotationInterval();
         switch (GameManager.Current.CurrentDifficult)
         {
             case GameManager.Difficult.easy:
+            _nextShowPlaneInterval = FourthNote;
+            SetRotationInterval();
             return new InitializeResult(
                         _nextShowPlaneInterval * _planeCount + FourthNote,
                         _nextShowPlaneInterval * _planeCount * 2,
                         FourthNote
                     );
             case GameManager.Difficult.normal:
+            _nextShowPlaneInterval = FourthNote;
+            SetRotationInterval();
             return new InitializeResult(
                         _nextShowPlaneInterval * _planeCount + FourthNote,
                         _nextShowPlaneInterval * _planeCount * 2,
                         FourthNote
                     );
             case GameManager.Difficult.hard:
+            _nextShowPlaneInterval = FourthNote + SixteenthNote;
+            SetRotationInterval();
             return new InitializeResult(
                         _nextShowPlaneInterval * _planeCount + FourthNote,
                         _nextShowPlaneInterval * _planeCount * 2,

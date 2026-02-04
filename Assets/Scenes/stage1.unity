@@ -2101,17 +2101,9 @@ PrefabInstance:
       propertyPath: m_Cameras.Array.size
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 662414525085695870, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 852436616158916041, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_Depth
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854555588966200804, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3221678509023341805, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2153,14 +2145,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4829976144892271881, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4901051787106768996, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5101677773879177309, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_Cameras.Array.size
       value: 1
@@ -2169,18 +2153,6 @@ PrefabInstance:
       propertyPath: 'm_Cameras.Array.data[0]'
       value: 
       objectReference: {fileID: 1788509519}
-    - target: {fileID: 5414808006530039386, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6954543246272746302, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7502168588620174458, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7668350871942819847, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2189,10 +2161,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8425627985837677622, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
-      propertyPath: m_Intensity
-      value: 2000
-      objectReference: {fileID: 0}
     - target: {fileID: 8836619283341090870, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_ClearFlags
       value: 4
@@ -2200,18 +2168,6 @@ PrefabInstance:
     - target: {fileID: 8836619283341090870, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 63
-      objectReference: {fileID: 0}
-    - target: {fileID: 8968512702207713803, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050766463561635084, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050766463561635084, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
-      propertyPath: m_Intensity
-      value: 2000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

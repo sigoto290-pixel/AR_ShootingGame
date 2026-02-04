@@ -42,11 +42,11 @@ public class BluePlaneForLineUp : PlaneForLineUp
             StageManager.Current.AddCombo();
             
             if(_dot >= 0.95f)
-            {StageManager.Current.AddScore(1f,TimingState.PerfectTiming);}
+            {StageManager.Current.AddScore(2f,TimingState.PerfectTiming);}
             else if(_dot >= 0.8f)
-            {StageManager.Current.AddScore(0.7f,TimingState.GreatTiming);}
+            {StageManager.Current.AddScore(1.4f,TimingState.GreatTiming);}
             else
-            {StageManager.Current.AddScore(0.4f,TimingState.GoodTiming);}
+            {StageManager.Current.AddScore(0.8f,TimingState.GoodTiming);}
 
             StartCoroutine(BreakCoroutine());
         }

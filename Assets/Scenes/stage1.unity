@@ -2098,6 +2098,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 176448579038873554, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: m_RenderShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 176448579038873554, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_Cameras.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -2143,6 +2147,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3221678509023341805, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101677773879177309, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}
+      propertyPath: m_RenderShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5101677773879177309, guid: 6668cfc03ed6aff43acfd981ef358f4a, type: 3}

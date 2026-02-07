@@ -15,9 +15,9 @@ public class ScoreValueText : MonoBehaviour
     {
         _textMeshProUGUI.text = "0";
     }
-    public void UpdateText(string updateText)
+    public void UpdateText(float score)
     {
-        _textMeshProUGUI.text = updateText;
+        _textMeshProUGUI.SetText("{0:1}",score);
         if(_currentCoroutine != null)
         {
             StopCoroutine(_currentCoroutine); 

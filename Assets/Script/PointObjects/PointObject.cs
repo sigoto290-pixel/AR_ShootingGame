@@ -122,7 +122,6 @@ public abstract class PointObject : MonoBehaviour
             {
                 if(TargetTimeKeeper == null) yield break;
                 propBlock.SetFloat("_outerFrameAnim",playback / duration);
-                Debug.Log("unnko2");
                 //shadergraphで作ったshader側の都合で、Color.blackを第二引数に設定する時は、微小な量を足してください。
                 TargetIndicator2.SetLifeTimeAnim(playback / duration,Color.black + new Color(0.04f,0.04f,0.04f),Color.white);
                 LifeTimeGUI_MR.SetPropertyBlock(propBlock);

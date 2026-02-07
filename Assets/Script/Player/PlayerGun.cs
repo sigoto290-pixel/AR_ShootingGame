@@ -19,17 +19,11 @@ public class PlayerGun : MonoBehaviour
     [SerializeField]Light _dualMuzzleFlashLight;
     [SerializeField]PlayerGun _partnerGun;
     RaycastHit _raycastHit;
-    static Color _startShellMaterialColor;
     bool _isShot;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    //これはplayerクラスのインスタンスにより呼ばれる。
+    public static void Initialize()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        _playingShotAnim = 0;
     }
     /// <summary>
     //銃口の先に複合コライダーを持つゲームオブジェクトがある時、それを返す関数
@@ -37,9 +31,8 @@ public class PlayerGun : MonoBehaviour
     /// <returns>銃口の先にゲームオブジェクトが存在しない、or複合コライダーが無い時nullを返します。</returns>
     public GameObject GetTarget()
     {
-        GameObject targetObj;
         Physics.Raycast(_muzzleTr.position,_muzzleTr.forward,out _raycastHit, 1000,LayerMask.NameToLayer("Player"));
-        targetObj = _raycastHit.collider?.attachedRigidbody?.gameObject;
+        GameObject targetObj = _raycastHit.collider?.attachedRigidbody?.gameObject;
         return targetObj;
     }
     public void Fire()

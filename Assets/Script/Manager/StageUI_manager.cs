@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using Audio;
+using System.Text;
 public class StageUI_manager : MonoBehaviour
 {
     public static StageUI_manager Current;
@@ -53,18 +54,17 @@ public class StageUI_manager : MonoBehaviour
     {
 
     }
-    public void UpdateScoreText(double score)
+    public void UpdateScoreText(float score)
     {
-        score = Math.Round(score, 1);
-        _scoreValueText.UpdateText(score.ToString());
+        _scoreValueText.UpdateText(score);
     }
-    public void UpdateAccidentalShootText(double miss)
+    public void UpdateAccidentalShootText(float miss)
     {
-        _accidentalShootTextTM.text = Math.Round(miss, 1).ToString() + "：誤射";
+        _accidentalShootTextTM.SetText("{0:0}：誤射",miss);
     }
-    public void UpdateTimeText(double time)
+    public void UpdateTimeText(float time)
     {
-        _timeTextTM.text = "時間：" + Math.Round(time, 1).ToString();
+        _timeTextTM.SetText("時間：{0:1}",time);
     }
     public void UpdateComboText(int combo)
     {
